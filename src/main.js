@@ -1,4 +1,5 @@
 import { createApp } from '@config/app'
+import './registerServiceWorker'
 
 // initial Application
 const { app } = createApp()

@@ -14,3 +14,18 @@ $color-input-border: lighten($color-heading-text, 50%);
 $color-button-bg: $color-link-text;
 $color-button-disabled-bg: darken(desaturate($color-button-bg, 20%), 10%);
 $color-button-text: white;
+
+// Background
+$background-color-base: #f9f7f5;
+$background-color-disabled: #f9f7f5;
+$border-color-base: #35495e;
+
+// Text
+$text-color-disabled: #35495e;
+$text-color-softer: $color-link-text;
+$text-color-base: #f9f7f5;
+
+// Border
+$border-color-active: #35495e;
+$border-color-danger: red;
+$opacity-disabled: #f9f7f5;

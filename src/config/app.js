@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import router from '@router'
 import { sync } from 'vuex-router-sync'
+import Fragment from 'vue-fragment'
 
 import store from '@state/store'
 import AppLayout from '@src/app.vue'
@@ -14,6 +15,8 @@ import '@components/BaseComponent/_globals'
 Object.keys(filters).forEach((key) => {
   Vue.filter(key, filters[key])
 })
+
+Vue.use(Fragment.Plugin)
 
 // Don't warn about using the dev version of Vue in development.
 Vue.config.productionTip = process.env.NODE_ENV === 'production'
