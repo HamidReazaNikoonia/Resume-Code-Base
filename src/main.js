@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import router from '@router'
+
 import store from '@state/store'
-import App from './app.vue'
+import AppLayout from './app.vue'
 
 // Globally register all `_base`-prefixed components
-import '@components/_globals'
+import '@components/BaseComponent/_globals'
 
 // Don't warn about using the dev version of Vue in development.
 Vue.config.productionTip = process.env.NODE_ENV === 'production'
@@ -18,7 +19,7 @@ if (process.env.VUE_APP_TEST === 'e2e') {
 const app = new Vue({
   router,
   store,
-  render: (h) => h(App),
+  render: (h) => h(AppLayout),
 }).$mount('#app')
 
 // If running e2e tests...

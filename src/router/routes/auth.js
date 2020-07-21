@@ -5,7 +5,8 @@ export default [
   {
     path: '/login',
     name: 'login',
-    component: () => lazyLoadView(import('@views/login.vue')),
+    component: () =>
+      lazyLoadView(import(/* webpackChunkName: "auth" */ '@views/login.vue')),
     meta: {
       beforeResolve(routeTo, routeFrom, next) {
         // If the user is already logged in

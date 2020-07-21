@@ -5,12 +5,14 @@ export default [
   {
     path: '/',
     name: 'home',
-    component: () => lazyLoadView(import('@views/home.vue')),
+    component: () =>
+      lazyLoadView(import(/* webpackChunkName: "main" */ '@views/home.vue')),
   },
   {
     path: '/profile',
     name: 'profile',
-    component: () => lazyLoadView(import('@views/profile.vue')),
+    component: () =>
+      lazyLoadView(import(/* webpackChunkName: "main" */ '@views/profile.vue')),
     meta: {
       authRequired: true,
     },
@@ -19,7 +21,8 @@ export default [
   {
     path: '/profile/:username',
     name: 'username-profile',
-    component: () => lazyLoadView(import('@views/profile.vue')),
+    component: () =>
+      lazyLoadView(import(/* webpackChunkName: "main" */ '@views/profile.vue')),
     meta: {
       authRequired: true,
       // HACK: In order to share data between the `beforeResolve` hook

@@ -1,9 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// https://github.com/declandewet/vue-meta
 import VueMeta from 'vue-meta'
-// Adds a loading bar at the top during page loads.
-import NProgress from 'nprogress/nprogress'
+
 import store from '@state/store'
 import routes from './routes/index'
 
@@ -15,13 +13,8 @@ Vue.use(VueMeta, {
 
 const router = new VueRouter({
   routes,
-  // Use the HTML5 history API (i.e. normal-looking routes)
-  // instead of routes with hashes (e.g. example.com/#/about).
-  // This may require some server configuration in production:
-  // https://router.vuejs.org/en/essentials/history-mode.html#example-server-configurations
   mode: 'history',
-  // Simulate native-like scroll behavior when navigating to a new
-  // route and using back/forward buttons.
+  // Simulate native-like scroll behavior
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition
@@ -33,12 +26,6 @@ const router = new VueRouter({
 
 // Before each route evaluates...
 router.beforeEach((routeTo, routeFrom, next) => {
-  // If this isn't an initial page load...
-  if (routeFrom.name !== null) {
-    // Start the route progress bar.
-    NProgress.start()
-  }
-
   // Check if auth is required on this route
   // (including nested routes).
   const authRequired = routeTo.matched.some((route) => route.meta.authRequired)
@@ -67,12 +54,6 @@ router.beforeEach((routeTo, routeFrom, next) => {
 })
 
 router.beforeResolve(async (routeTo, routeFrom, next) => {
-  // Create a `beforeResolve` hook, which fires whenever
-  // `beforeRouteEnter` and `beforeRouteUpdate` would. This
-  // allows us to ensure data is fetched even when params change,
-  // but the resolved route does not. We put it in `meta` to
-  // indicate that it's a hook we created, rather than part of
-  // Vue Router (yet?).
   try {
     // For each matched route...
     for (const route of routeTo.matched) {
@@ -86,7 +67,6 @@ router.beforeResolve(async (routeTo, routeFrom, next) => {
               // If redirecting to the same route we're coming from...
               if (routeFrom.name === args[0].name) {
                 // Complete the animation of the route progress bar.
-                NProgress.done()
               }
               // Complete the redirect.
               next(...args)
@@ -108,12 +88,6 @@ router.beforeResolve(async (routeTo, routeFrom, next) => {
 
   // If we reach this point, continue resolving the route.
   next()
-})
-
-// When each route is finished evaluating...
-router.afterEach((routeTo, routeFrom) => {
-  // Complete the animation of the route progress bar.
-  NProgress.done()
 })
 
 export default router
