@@ -1,26 +1,10 @@
-import Vue from 'vue'
-import router from '@router'
+import { createApp } from '@config/app'
 
-import store from '@state/store'
-import AppLayout from './app.vue'
+// initial Application
+const { app } = createApp()
 
-// Globally register all `_base`-prefixed components
-import '@components/BaseComponent/_globals'
-
-// Don't warn about using the dev version of Vue in development.
-Vue.config.productionTip = process.env.NODE_ENV === 'production'
-
-// If running inside Cypress...
-if (process.env.VUE_APP_TEST === 'e2e') {
-  // Ensure tests fail when Vue emits an error.
-  Vue.config.errorHandler = window.Cypress.cy.onUncaughtException
-}
-
-const app = new Vue({
-  router,
-  store,
-  render: (h) => h(AppLayout),
-}).$mount('#app')
+// mount to DOM
+app.$mount('#app')
 
 // If running e2e tests...
 if (process.env.VUE_APP_TEST === 'e2e') {
