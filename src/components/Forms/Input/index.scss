@@ -1,4 +1,5 @@
 @import '@design';
+
 @mixin input($class) {
   .#{$class}-wrap {
     position: relative;
