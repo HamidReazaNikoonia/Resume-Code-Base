@@ -2,6 +2,7 @@ import Vue from 'vue'
 import router from '@router'
 import { sync } from 'vuex-router-sync'
 import Fragment from 'vue-fragment'
+import BootstrapVue from 'bootstrap-vue'
 
 import store from '@state/store'
 import AppLayout from '@src/app.vue'
@@ -17,6 +18,9 @@ Object.keys(filters).forEach((key) => {
 })
 
 Vue.use(Fragment.Plugin)
+
+// Implement Bootstrap
+Vue.use(BootstrapVue)
 
 // Don't warn about using the dev version of Vue in development.
 Vue.config.productionTip = process.env.NODE_ENV === 'production'

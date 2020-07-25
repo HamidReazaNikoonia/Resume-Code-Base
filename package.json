@@ -33,6 +33,7 @@
     "@fortawesome/vue-fontawesome": "0.1.9",
     "async-validator": "^3.3.0",
     "axios": "0.19.2",
+    "bootstrap-vue": "^2.15.0",
     "core-js": "3.6.4",
     "date-fns": "2.10.0",
     "dot-prop": "^5.2.0",

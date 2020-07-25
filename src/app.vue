@@ -11,6 +11,9 @@
 // Normalize default styles across browsers,
 @import '~normalize.css/normalize.css';
 
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';
+
 // Design variables and utilities from src/design.
 @import '@design';
 
