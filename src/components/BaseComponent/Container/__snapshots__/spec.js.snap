@@ -1,0 +1,5 @@
+exports[`Container.vue matches snapshot 1`] = `
+<div
+  class="ds-container ds-container-x-large"
+/>
+`;

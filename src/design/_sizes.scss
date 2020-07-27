@@ -25,3 +25,19 @@ $border-radius-circle: 100%;
 // Fonts
 $font-size-small: 1.1em;
 $font-size-x-small: 0.9em;
+
+// Spaces
+$space-base: 4px;
+$space-x-large: 12px;
+
+// Responsive
+$xs: 480;
+$sm: 600;
+$md: 768;
+$lg: 1024;
+$xl: 1200;
+$media-query-x-small: '(min-width: 480px)';
+$media-query-small: '(min-width: 600px)';
+$media-query-medium: '(min-width: 768px)';
+$media-query-large: '(min-width: 1024px)';
+$media-query-x-large: '(min-width: 1200px)';

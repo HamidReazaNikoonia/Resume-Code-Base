@@ -3,12 +3,12 @@
     <div
       class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center"
     >
-      <a class="navbar-brand brand-logo">
+      <!-- <a class="navbar-brand brand-logo">
         LOGO
       </a>
       <a class="navbar-brand brand-logo-mini">
         LOGO
-      </a>
+      </a> -->
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center ml-auto ml-lg-0">
       <b-navbar-nav class="header-links d-none d-md-flex">
@@ -181,243 +181,13 @@ export default {
   methods: {
     collapedMobileSidebar() {
       // document.querySelector('.sidebar').classList.toggle('active')
+      this.$emit('toggleActive')
     }
   }
 }
 </script>
 
 <style lang="scss">
-/* Sidebar */
-.sidebar {
-  min-height: calc(100vh - 58px);
-  background: #ffffff;
-  font-family: 'Poppins', sans-serif;
-  padding: 0;
-  width: 255px;
-  z-index: 11;
-  transition: width 0.25s ease, background 0.25s ease;
-  -webkit-transition: width 0.25s ease, background 0.25s ease;
-  -moz-transition: width 0.25s ease, background 0.25s ease;
-  -ms-transition: width 0.25s ease, background 0.25s ease;
-}
-.sidebar .nav {
-  overflow: hidden;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  padding-top: 30px;
-  padding-bottom: 50px;
-}
-.sidebar .nav .nav-item .collapse {
-  z-index: 999;
-}
-.sidebar .nav .nav-item .collapse.show,
-.sidebar .nav .nav-item .collapsing {
-  background: #f1f6ff;
-}
-.sidebar .nav .nav-item .nav-link {
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 1rem 1.875rem;
-  white-space: nowrap;
-  height: 52px;
-  color: #4a4949;
-}
-.sidebar .nav .nav-item .nav-link[aria-expanded='true'] {
-  background: #f1f6ff;
-}
-.sidebar .nav .nav-item .nav-link .menu-icon {
-  margin-right: 1.25rem;
-  width: 16px;
-  line-height: 1;
-}
-.rtl .sidebar .nav .nav-item .nav-link .menu-icon {
-  margin-right: 0;
-  margin-left: 1.25rem;
-}
-.sidebar .nav .nav-item .nav-link i {
-  color: #404852;
-}
-.sidebar .nav .nav-item .nav-link i.menu-arrow {
-  margin-left: auto;
-  margin-right: 0;
-}
-.sidebar .nav .nav-item .nav-link i.menu-arrow:before {
-  content: '\F35D';
-  font-family: 'Material Design Icons';
-  font-size: 18px;
-  line-height: 1;
-  font-style: normal;
-  vertical-align: middle;
-  color: rgba(74, 73, 73, 0.5);
-}
-.sidebar .nav .nav-item .nav-link .menu-title {
-  color: inherit;
-  display: inline-block;
-  font-size: 0.875rem;
-  line-height: 1;
-  vertical-align: middle;
-}
-.sidebar .nav .nav-item .nav-link .badge {
-  margin-left: auto;
-}
-.sidebar .nav .nav-item .nav-link:hover {
-  color: #3d3c3c;
-}
-.sidebar .nav .nav-item.nav-profile {
-  background: transparent;
-}
-.sidebar .nav .nav-item.nav-profile .nav-link {
-  font-family: 'Poppins', sans-serif;
-  display: block;
-  height: auto;
-  padding: 0 1.625rem 2.25rem 1.188rem;
-}
-.sidebar .nav .nav-item.nav-profile .profile-image {
-  position: relative;
-  width: 70px;
-  height: 70px;
-  margin: auto;
-}
-.sidebar .nav .nav-item.nav-profile .profile-image img {
-  width: 70px;
-  height: 70px;
-  border-radius: 100%;
-}
-.sidebar .nav .nav-item.nav-profile .profile-name {
-  margin-top: 0.75rem;
-  text-align: center;
-}
-.rtl .sidebar .nav .nav-item.nav-profile .profile-name {
-  margin-left: auto;
-  margin-right: 0.75rem;
-}
-.sidebar .nav .nav-item.nav-profile .profile-name .designation,
-.sidebar .nav .nav-item.nav-profile .profile-name .name {
-  font-family: 'Poppins', sans-serif;
-  margin-bottom: 0;
-  line-height: 1.5;
-  font-weight: 500;
-}
-.sidebar .nav .nav-item.nav-profile .profile-name .name {
-  color: #404852;
-}
-.sidebar .nav .nav-item.nav-profile .profile-name .designation {
-  color: #8d9498;
-  font-size: 0.75rem;
-}
-.sidebar .nav .nav-item.nav-profile i {
-  color: #ffffff;
-  font-size: 1rem;
-  margin-left: auto;
-}
-.sidebar .nav .nav-item.active > .nav-link {
-  color: #1991eb;
-}
-.sidebar .nav .nav-item.active > .nav-link .menu-title,
-.sidebar .nav .nav-item.active > .nav-link i {
-  color: inherit;
-}
-.sidebar .nav:not(.sub-menu) > .nav-item:hover:not(.nav-profile) > .nav-link {
-  background: #f1f6ff;
-  color: #4a4949;
-}
-.sidebar .nav.sub-menu {
-  margin-bottom: 0;
-  padding: 0 0 0 3.25rem;
-}
-.sidebar .nav.sub-menu .nav-item .nav-link {
-  color: #4a4949;
-  padding: 0.75rem 1rem;
-  font-size: 0.875rem;
-  line-height: 1;
-  height: auto;
-}
-.sidebar .nav.sub-menu .nav-item .nav-link.active {
-  color: #1991eb;
-  background: transparent;
-}
-.sidebar .nav.sub-menu .nav-item .nav-link.active:before {
-  background: #1991eb;
-}
-.sidebar .nav.sub-menu .nav-item:hover > .nav-link {
-  background: initial;
-  color: #000;
-}
-.sidebar .nav.sub-menu .nav-item:hover > .nav-link:before {
-  background: #000;
-}
-.sidebar .nav .nav-item.purchase-button {
-  text-align: center;
-  margin-top: 10px;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.sidebar .nav .nav-item.purchase-button .nav-link {
-  background-color: #d209fa;
-  *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FFD209FA', endColorstr='#FF4F81D4');
-  background-image: -owg-linear-gradient(left, #d209fa 1%, #4f81d4 100%);
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    color-stop(1%, #d209fa),
-    to(#4f81d4)
-  );
-  background-image: linear-gradient(left, #d209fa 1%, #4f81d4 100%);
-  color: #ffffff;
-  text-align: center;
-  display: block;
-  font-weight: 500;
-  border-radius: 4px;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  font-size: 14px;
-}
-.sidebar .nav .nav-item.purchase-button .nav-link:hover {
-  background-color: #d209fa;
-  *zoom: 1;
-  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr='#FFD209FA', endColorstr='#FF4F81D4');
-  background-image: -owg-linear-gradient(left, #d209fa 1%, #4f81d4 100%);
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    color-stop(1%, #d209fa),
-    to(#4f81d4)
-  );
-  background-image: linear-gradient(left, #d209fa 1%, #4f81d4 100%);
-}
-.sidebar .nav .nav-item.purchase-button:hover .nav-link {
-  background-color: #d209fa !important;
-  color: #ffffff !important;
-}
-/* style for off-canvas menu*/
-@media screen and (max-width: 991px) {
-  .sidebar-offcanvas {
-    position: fixed;
-    max-height: calc(100vh - 58px);
-    top: 58px;
-    bottom: 0;
-    overflow: auto;
-    right: -255px;
-    -webkit-transition: all 0.25s ease-out;
-    transition: all 0.25s ease-out;
-    -webkit-box-shadow: -5px 0 10px 0 #eee;
-    box-shadow: -5px 0 10px 0 #eee;
-  }
-  .sidebar-offcanvas.active {
-    right: 0;
-  }
-}
 /* Navbar */
 .navbar {
   font-family: 'Poppins', sans-serif;
